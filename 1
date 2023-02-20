@@ -5,8 +5,13 @@ counter=0
 echo 
 while [ $player != 100 ]
 do
-    read -p "Enter to throw Dice:"
-    dice=$((1+RANDOM%6))
+    read -p "Press Enter to throw Dice:"
+    dice=0
+    while [ $dice -lt 1 ]
+    do
+        dice=$((RANDOM%7))
+    done
+    
     echo "You Rolled a $dice"
     counter=$((counter+1))
     
@@ -17,6 +22,9 @@ do
     fi
     
     case $player in
+        18)
+            player=1
+        echo "You got eaten by a Snake!";;
         26)
             player=10
         echo "You got eaten by a Snake!";;
@@ -32,6 +40,9 @@ do
         75)
             player=28
         echo "You got eaten by a Snake!";;
+        83)
+            player=45
+        echo "You got eaten by a Snake!";;
         90)
             player=48
         echo "You got eaten by a Snake!";;
@@ -41,8 +52,14 @@ do
         97)
             player=66
         echo "You got eaten by a Snake!";;
+        3)
+            player=20
+        echo "You climed a Ladder!";;
         7)
             player=13
+        echo "You climed a Ladder!";;
+        11)
+            player=28
         echo "You climed a Ladder!";;
         15)
             player=34
